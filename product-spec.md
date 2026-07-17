@@ -51,8 +51,11 @@ the timeline where Apple ships theirs.
 
 ## Privacy posture (non-negotiable, and the marketing headline)
 
-100 percent local. No network calls, no accounts, no analytics, no
-telemetry. Read-only snapshot of chat.db; never writes to Messages.
+100 percent local. No accounts, no analytics, no telemetry. Read-only
+snapshot of chat.db; never writes to Messages. One honest exception to
+"no network calls," arriving with v1.3: the updater fetches the appcast
+and DMG from the public delivered-releases repo, and only that -- and
+it can be switched off in Settings.
 Curation guarantees: nothing outside explicitly included chats appears in
 memories mode; hide-forever is one keystroke; exports are user-initiated
 files that go where the user says and nowhere else.
@@ -187,6 +190,17 @@ v1.1 remaining (verification, not construction):
 - VoiceOver and keyboard-navigation audit; 4K memories perf check;
   frame-restoration check (docs/hig-checklist.md unchecked items).
 - All Messages transcript windowing if the ~284k-row load feels slow.
+
+v1.3 committed (the Rogue Amoeba adoptions, decided 2026-07-17 --
+"the aggregation of marginal gains" is now house philosophy):
+- Unobtrusive auto-updates: Sparkle with a custom user driver. Never a
+  modal, never at launch; background check + download, one quiet
+  dismissible "Relaunch to update" line, install-on-quit either way.
+  Manual Check for Updates keeps immediate feedback.
+- Permissions window: a Settings tab that is the single honest map of
+  what Delivered can touch -- FDA (required, why, status, one button)
+  and Contacts (optional, what it adds) -- absorbing the banner and
+  auto-prompt logic into one legible surface.
 
 v1.3 candidates (deferred deliberately from v1.2):
 - Photo recovery via the Photos library: many evicted attachments exist

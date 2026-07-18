@@ -4,6 +4,24 @@
     <title>Delivered</title>
     <language>en</language>
     <item>
+      <title>Version 1.2.3</title>
+      <pubDate>Sat, 18 Jul 2026 19:14:30 +0000</pubDate>
+      <sparkle:version>6</sparkle:version>
+      <sparkle:shortVersionString>1.2.3</sparkle:shortVersionString>
+      <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
+      <description><![CDATA[
+        <ul>
+          <li>Delivered has an icon worthy of your dock: the blue balloon with the heart tapback.</li>
+        </ul>
+      ]]></description>
+      <enclosure
+        url="https://github.com/jeffsand/delivered-releases/releases/download/v1.2.3/Delivered-1.2.3.dmg"
+        sparkle:edSignature="72tIbo7pSa7gZYzdWnnVf5YiaeGgIeNLdGhTjQXLnIR3fCgvxC5T/0Sg8q0Il90XkBw2leCM2HH2azQ0weJUBA=="
+        length="3769202"
+        type="application/x-apple-diskimage" />
+    </item>
+
+    <item>
       <title>Version 1.2.2</title>
       <pubDate>Sat, 18 Jul 2026 18:22:45 +0000</pubDate>
       <sparkle:version>4</sparkle:version>

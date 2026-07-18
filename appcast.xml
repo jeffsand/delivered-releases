@@ -4,6 +4,24 @@
     <title>Delivered</title>
     <language>en</language>
     <item>
+      <title>Version 1.2.4</title>
+      <pubDate>Sat, 18 Jul 2026 19:30:10 +0000</pubDate>
+      <sparkle:version>7</sparkle:version>
+      <sparkle:shortVersionString>1.2.4</sparkle:shortVersionString>
+      <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
+      <description><![CDATA[
+        <ul>
+          <li>Faster everywhere: the Today pane assembles in milliseconds, stats never block the window, and memories start instantly, even on very large libraries.</li>
+        </ul>
+      ]]></description>
+      <enclosure
+        url="https://github.com/jeffsand/delivered-releases/releases/download/v1.2.4/Delivered-1.2.4.dmg"
+        sparkle:edSignature="rU1eW0dBl/BZewwl8xsR2rlBzaPGK7MLAtaLtB2RVOQB/+leFPfMjDEv/KO8KgwQSl4zYwvSnE43ffClXTwZBQ=="
+        length="3780979"
+        type="application/x-apple-diskimage" />
+    </item>
+
+    <item>
       <title>Version 1.2.3</title>
       <pubDate>Sat, 18 Jul 2026 19:14:30 +0000</pubDate>
       <sparkle:version>6</sparkle:version>

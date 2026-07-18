@@ -38,8 +38,6 @@ across every year you have been texting: photos and the quotes worth
 keeping, different every morning. Every card opens the conversation at
 that day.
 
-<img src="images/today.png" width="760" alt="The Today pane: recent days and on-this-day clusters">
-
 **Find** is full-text search over your entire history, sub-second at
 hundreds of thousands of messages, with operators for precision (see
 below). Every result is a door into the conversation at that moment.
@@ -72,8 +70,6 @@ email resolve to one human everywhere.
 
 **And Stats keeps the superlatives**: total messages, photos kept,
 years of history, the busiest day, the chief reactor, the most loved.
-
-<img src="images/stats.png" width="760" alt="The Stats wall">
 
 ## For power users
 

@@ -1,4 +1,4 @@
-# Delivered -- product spec
+# Delivered, product spec
 
 Updated 2026-07-18 (v1.3 shipped: the ship pipeline). Supersedes the framing in the original
 MLP plan (2026-07-11, on Jeff's machine); architecture and decisions from
@@ -9,14 +9,14 @@ stands alone.
 
 Your Messages history is one of the most valuable personal datasets you
 own: years of family life, decisions, jokes, photos, logistics. Apple
-gives you almost nothing to do with it -- search is shallow, export does
+gives you almost nothing to do with it, search is shallow, export does
 not exist, there is no API, and the data is locked in an undocumented
 SQLite file behind Full Disk Access.
 
 **Delivered is the advanced view of Messages that Apple never wrote.**
 Search everything in milliseconds. Browse the whole archive as one
-continuous timeline. Export any chat as clean Markdown or structured JSON
--- formats designed to drop straight into an LLM context window. And put
+continuous timeline. Export any chat as clean Markdown or structured
+JSON, in formats designed to drop straight into an LLM context window. And put
 the whole thing on a TV as ambient art with memories mode.
 
 The original framing ("a screensaver based on iMessage") is now the
@@ -30,23 +30,23 @@ the timeline where Apple ships theirs.
 
 ## Product pillars (priority order)
 
-1. **Find** -- FTS5 full-text search over every message with filters
+1. **Find**: FTS5 full-text search over every message with filters
    (chat, sender, has-photo). Sub-second over hundreds of thousands of
    rows. Operators (from:/in:/before:/after:/has:) and saved searches
    shipped in v1.1-v1.2.
-2. **Browse** -- the continuous transcript: one scroll through years,
+2. **Browse**: the continuous transcript: one scroll through years,
    Messages' own visual language (clustering, blue/gray bubbles,
    avatars), a year/month jump index. The archive as a place you can
    actually walk through.
-3. **Export** -- per-chat Markdown (readability-first, Gruber's own
+3. **Export**: per-chat Markdown (readability-first, Gruber's own
    format) and JSON (ISO8601 dates, typed tapbacks, attachment
    metadata), with a preview-before-save sheet. Explicitly designed as
    LLM context: "drop your family chat into Claude and ask it
    questions." The .delivered archive package is the machine-portable
    whole-library form.
-4. **Memories** -- fullscreen ambient mode: Ken Burns photos, temporally
+4. **Memories**: fullscreen ambient mode: Ken Burns photos, temporally
    coherent quote bubbles, tapback bursts, stats. The showcase, the
-   demo, the reason someone installs it -- and then pillars 1-3 keep it
+   demo, the reason someone installs it, and then pillars 1-3 keep it
    installed.
 
 ## Privacy posture (non-negotiable, and the marketing headline)
@@ -54,7 +54,7 @@ the timeline where Apple ships theirs.
 100 percent local. No accounts, no analytics, no telemetry. Read-only
 snapshot of chat.db; never writes to Messages. One honest exception to
 "no network calls," arriving with v1.3: the updater fetches the appcast
-and DMG from the public delivered-releases repo, and only that -- and
+and DMG from the public delivered-releases repo, and only that, and
 it can be switched off in Settings.
 Curation guarantees: nothing outside explicitly included chats appears in
 memories mode; hide-forever is one keystroke; exports are user-initiated
@@ -62,7 +62,7 @@ files that go where the user says and nowhere else.
 
 ## Platform reality (decided, verified)
 
-- iOS cannot read chat.db -- no API, no entitlement. The Mac is the only
+- iOS cannot read chat.db: no API, no entitlement. The Mac is the only
   possible home. iOS/tvOS become consumers of the .delivered archive
   (format_version 1, shipped in v1) in a future release.
 - Mac App Store is impossible (sandbox forbids Full Disk Access).
@@ -104,7 +104,7 @@ tested engine reusable by future archive consumers.
   has:photo, from:me, quoted values; operator-only queries; the parsed
   interpretation shown above results; unknown names explain themselves.
 - Cmd+Z undo for hide, everywhere hide exists (context menu, memories H
-  key -- one undo step per slide), via the window UndoManager.
+  key, one undo step per slide), via the window UndoManager.
 - Drag a photo out of the transcript to Finder (original file).
 - Export filters: per-person and date-range on the preview sheet (seeded
   from the chat's real span) and CLI (--from, --after, --before).
@@ -134,11 +134,11 @@ tested engine reusable by future archive consumers.
   messages dedupe by guid (idempotent, cancel-safe), people unify via
   handle keys, attachments found beside the source copy into app-owned
   storage. Progress is content: a serif numeral counting up and a
-  determinate bar; the finale reports what arrived -- or that
-  everything was already here -- and celebrates when the archive's
+  determinate bar; the finale reports what arrived, or that
+  everything was already here, and celebrates when the archive's
   reach extends backward.
 - The sidebar is the map: a Chats section lists every conversation with
-  25+ messages (~400 of ~2,400 -- an archive never deletes, so the raw
+  25+ messages (~400 of ~2,400, an archive never deletes, so the raw
   list is mostly one-off SMS receipts), recency-sorted, contact-titled.
   Syncs and merges badge the chats they touched, Mail-style; visiting
   clears the badge. The long tail stays reachable through search, whose
@@ -163,7 +163,7 @@ tested engine reusable by future archive consumers.
 ## Shipped (v1.2, 2026-07-16)
 
 - MCP server mode: delivered --serve-mcp speaks MCP over stdio (zero
-  dependencies, zero network) with three tools -- search_messages (full
+  dependencies, zero network) with three tools, search_messages (full
   operator grammar, unified names), get_transcript (name-matched chat,
   date range, Markdown out), list_chats. Delivered is the bridge
   between the Messages archive and every MCP client. Register:
@@ -185,13 +185,13 @@ tested engine reusable by future archive consumers.
 ## Roadmap
 
 v1.1 remaining (verification, not construction):
-- Developer ID signing live (cert pending -- Jeff's portal step), then
+- Developer ID signing live (cert pending: Jeff's portal step), then
   notarized DMG builds.
 - VoiceOver and keyboard-navigation audit; 4K memories perf check;
   frame-restoration check (docs/hig-checklist.md unchecked items).
 - All Messages transcript windowing if the ~284k-row load feels slow.
 
-## Shipped (v1.3, 2026-07-17/18) -- the ship pipeline
+## Shipped (v1.3, 2026-07-17/18), the ship pipeline
 
 - Signed: Developer ID Application (RF22UW723X), hardened runtime,
   inside-out signing including Sparkle's helpers (scripts/sign.sh).
@@ -202,15 +202,15 @@ v1.1 remaining (verification, not construction):
   Applications. create-dmg with a generated background
   (scripts/make-dmg-background.swift).
 - Unobtrusive auto-updates (the Rogue Amoeba adoption): Sparkle 2.9
-  with a custom user driver -- never a modal, never at launch.
+  with a custom user driver, never a modal, never at launch.
   Background check + silent download; one quiet dismissible sidebar
   line ("1.2.1 ready · relaunch"); install-on-quit either way; manual
   Check for Updates keeps immediate capsule feedback; automatic checks
   toggleable in Settings > About.
 - Permissions window (Settings > Permissions): the single honest map
-  -- FDA (required) and Contacts (optional), live-probed status, why,
+ , FDA (required) and Contacts (optional), live-probed status, why,
   one button each.
-- One-shot releases: ./scripts/release.sh <version> "<notes>" -- gate,
+- One-shot releases: ./scripts/release.sh <version> "<notes>", gate,
   bump, build, sign, notarize, DMG, appcast, GitHub release, verify.
   Public home: github.com/jeffsand/delivered-releases (code private).
 - PROVEN 2026-07-18: 1.2.0 released and installed from the public DMG
@@ -223,7 +223,7 @@ v1.3 candidates (deferred deliberately from v1.2):
   in Photos; capture-date matching could refill Today, memories, and
   exports. Needs PhotoKit and its own permission conversation.
 - Ambient video clips inside memories mode (muted AVPlayer layers in
-  the sequencer) -- the TV dream, done properly.
+  the sequencer), the TV dream, done properly.
 
 v2 (the big screen):
 - tvOS/iPad companion consuming .delivered archives (iCloud Drive or
@@ -240,12 +240,12 @@ Delivered is not affiliated with Apple.
 - 2026-07-11: name Delivered; repo private until ship; open source
   planned, final call later; fullscreen ambient not .saver; archive
   format in v1; club-sandquist archived (data separated from code).
-- 2026-07-13: repositioned -- archive power tool first, screensaver as
+- 2026-07-13: repositioned, archive power tool first, screensaver as
   showcase. Recents + contact-resolved titles. Continuous transcript
   replaces month pagination. Export preview before save.
 - 2026-07-15: v1.1 construction complete (search operators, hide undo,
   photo drag, export filters). Transcript windowing deferred until All
-  Messages demonstrably feels slow on real data -- no speculative
+  Messages demonstrably feels slow on real data, no speculative
   rework of the jump index.
 - 2026-07-16: design review fixes (bubble contrast, honest scopes);
   Memories became a mode, not a place (one Chats list, sparkle +

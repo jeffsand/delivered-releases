@@ -191,16 +191,32 @@ v1.1 remaining (verification, not construction):
   frame-restoration check (docs/hig-checklist.md unchecked items).
 - All Messages transcript windowing if the ~284k-row load feels slow.
 
-v1.3 committed (the Rogue Amoeba adoptions, decided 2026-07-17 --
-"the aggregation of marginal gains" is now house philosophy):
-- Unobtrusive auto-updates: Sparkle with a custom user driver. Never a
-  modal, never at launch; background check + download, one quiet
-  dismissible "Relaunch to update" line, install-on-quit either way.
-  Manual Check for Updates keeps immediate feedback.
-- Permissions window: a Settings tab that is the single honest map of
-  what Delivered can touch -- FDA (required, why, status, one button)
-  and Contacts (optional, what it adds) -- absorbing the banner and
-  auto-prompt logic into one legible surface.
+## Shipped (v1.3, 2026-07-17/18) -- the ship pipeline
+
+- Signed: Developer ID Application (RF22UW723X), hardened runtime,
+  inside-out signing including Sparkle's helpers (scripts/sign.sh).
+  TCC grants are durable at last.
+- Notarized and stapled, app and DMG both, via the "delivered"
+  notarytool profile.
+- The DMG: cream field, wordmark over the gold title-rule, drag to
+  Applications. create-dmg with a generated background
+  (scripts/make-dmg-background.swift).
+- Unobtrusive auto-updates (the Rogue Amoeba adoption): Sparkle 2.9
+  with a custom user driver -- never a modal, never at launch.
+  Background check + silent download; one quiet dismissible sidebar
+  line ("1.2.1 ready · relaunch"); install-on-quit either way; manual
+  Check for Updates keeps immediate capsule feedback; automatic checks
+  toggleable in Settings > About.
+- Permissions window (Settings > Permissions): the single honest map
+  -- FDA (required) and Contacts (optional), live-probed status, why,
+  one button each.
+- One-shot releases: ./scripts/release.sh <version> "<notes>" -- gate,
+  bump, build, sign, notarize, DMG, appcast, GitHub release, verify.
+  Public home: github.com/jeffsand/delivered-releases (code private).
+- PROVEN 2026-07-18: 1.2.0 released and installed from the public DMG
+  (Gatekeeper: accepted, Notarized Developer ID); 1.2.1 released; the
+  installed 1.2.0 found it silently, staged it, and self-updated to
+  1.2.1 on one click of the quiet line. The full loop works.
 
 v1.3 candidates (deferred deliberately from v1.2):
 - Photo recovery via the Photos library: many evicted attachments exist

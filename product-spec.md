@@ -1,6 +1,6 @@
 # Delivered -- product spec
 
-Updated 2026-07-16 (v1.2 shipped). Supersedes the framing in the original
+Updated 2026-07-18 (v1.3 shipped: the ship pipeline). Supersedes the framing in the original
 MLP plan (2026-07-11, on Jeff's machine); architecture and decisions from
 that plan carry forward unchanged and are restated here so this document
 stands alone.

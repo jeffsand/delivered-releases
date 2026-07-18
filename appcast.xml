@@ -4,6 +4,24 @@
     <title>Delivered</title>
     <language>en</language>
     <item>
+      <title>Version 1.2.2</title>
+      <pubDate>Sat, 18 Jul 2026 18:22:45 +0000</pubDate>
+      <sparkle:version>4</sparkle:version>
+      <sparkle:shortVersionString>1.2.2</sparkle:shortVersionString>
+      <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
+      <description><![CDATA[
+        <ul>
+          <li>Housekeeping release. No changes you will notice.</li>
+        </ul>
+      ]]></description>
+      <enclosure
+        url="https://github.com/jeffsand/delivered-releases/releases/download/v1.2.2/Delivered-1.2.2.dmg"
+        sparkle:edSignature="0M+W/d9mK4x2weajyZuLvVxdhqUGi8CJQm9+rrJFgZLpuFX3L657FillcUb/WZv9lc9stc7dVI2UsyE3Bm+JBQ=="
+        length="3825771"
+        type="application/x-apple-diskimage" />
+    </item>
+
+    <item>
       <title>Version 1.2.1</title>
       <pubDate>Sat, 18 Jul 2026 17:39:26 +0000</pubDate>
       <sparkle:version>3</sparkle:version>

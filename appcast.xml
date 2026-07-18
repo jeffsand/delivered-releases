@@ -21,41 +21,5 @@
         type="application/x-apple-diskimage" />
     </item>
 
-    <item>
-      <title>Version 1.2.1</title>
-      <pubDate>Sat, 18 Jul 2026 17:39:26 +0000</pubDate>
-      <sparkle:version>3</sparkle:version>
-      <sparkle:shortVersionString>1.2.1</sparkle:shortVersionString>
-      <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
-      <description><![CDATA[
-        <ul>
-          <li>Update loop verification.</li>
-        </ul>
-      ]]></description>
-      <enclosure
-        url="https://github.com/jeffsand/delivered-releases/releases/download/v1.2.1/Delivered-1.2.1.dmg"
-        sparkle:edSignature="x+Wl4ZxAdZfTufJ8IIIdUXTDZtO2O95czEBdQaaK02O1eKHqTNg9LlRQ/cSnQUA1wonwbAtKiC6kupaNF7nSAg=="
-        length="3826012"
-        type="application/x-apple-diskimage" />
-    </item>
-
-    <item>
-      <title>Version 1.2.0</title>
-      <pubDate>Sat, 18 Jul 2026 17:37:07 +0000</pubDate>
-      <sparkle:version>2</sparkle:version>
-      <sparkle:shortVersionString>1.2.0</sparkle:shortVersionString>
-      <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
-      <description><![CDATA[
-        <ul>
-          <li>First public release: search operators, the Today pane, thread stitching, exports built for LLM context, the MCP server, and memories mode.</li>
-        </ul>
-      ]]></description>
-      <enclosure
-        url="https://github.com/jeffsand/delivered-releases/releases/download/v1.2.0/Delivered-1.2.0.dmg"
-        sparkle:edSignature="IEp5+s3jLs/FeOPvBkYHO5wbhnX8eyfEdXVsyPIqTy2E1wwXjbwhxa+YC4jAVDPFl7Zo6+ml+QEt8C+dqjTzAA=="
-        length="3826002"
-        type="application/x-apple-diskimage" />
-    </item>
-
   </channel>
 </rss>

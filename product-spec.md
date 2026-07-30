@@ -1,9 +1,11 @@
 # Delivered, product spec
 
-Updated 2026-07-18 (v1.3 shipped: the ship pipeline). Supersedes the framing in the original
-MLP plan (2026-07-11, on Jeff's machine); architecture and decisions from
-that plan carry forward unchanged and are restated here so this document
-stands alone.
+Updated 2026-07-30 (1.3.0 candidate: the sending release). Supersedes
+the framing in the original MLP plan (2026-07-11, on Jeff's machine);
+architecture and decisions from that plan carry forward unchanged and
+are restated here so this document stands alone. Version labels below
+match shipped app versions: the ship pipeline landed inside the 1.2
+series, and 1.3.0 is the release that answers back.
 
 ## Thesis
 
@@ -15,7 +17,8 @@ SQLite file behind Full Disk Access.
 
 **Delivered is the advanced view of Messages that Apple never wrote.**
 Search everything in milliseconds. Browse the whole archive as one
-continuous timeline. Export any chat as clean Markdown or structured
+continuous timeline. Answer from wherever the archive moved you, without
+losing your place. Export any chat as clean Markdown or structured
 JSON, in formats designed to drop straight into an LLM context window. And put
 the whole thing on a TV as ambient art with memories mode.
 
@@ -44,18 +47,30 @@ the timeline where Apple ships theirs.
    LLM context: "drop your family chat into Claude and ask it
    questions." The .delivered archive package is the machine-portable
    whole-library form.
-4. **Memories**: fullscreen ambient mode: Ken Burns photos, temporally
-   coherent quote bubbles, tapback bursts, stats. The showcase, the
-   demo, the reason someone installs it, and then pillars 1-3 keep it
-   installed.
+4. **Answer** (1.3.0): the archive moves you, and you can act on it
+   without leaving. A composer under every transcript, quick reply on
+   Today cards and search hits, Cmd+N for a fresh conversation with
+   anyone in Contacts, and Quick Send, a global hotkey panel that sends
+   a message from any app without switching. Sending goes through
+   Messages.app via Apple Events; the archive itself stays read-only
+   forever, and nothing is ever claimed sent until the echoed row
+   appears in the library.
+5. **Memories**: fullscreen ambient mode: Ken Burns photos, ambient
+   video clips, temporally coherent quote bubbles, tapback bursts,
+   stats. The showcase, the demo, the reason someone installs it, and
+   then the other pillars keep it installed.
 
 ## Privacy posture (non-negotiable, and the marketing headline)
 
-100 percent local. No accounts, no analytics, no telemetry. Read-only
-snapshot of chat.db; never writes to Messages. One honest exception to
-"no network calls," arriving with v1.3: the updater fetches the appcast
-and DMG from the public delivered-releases repo, and only that, and
-it can be switched off in Settings.
+100 percent local. No accounts, no analytics, no telemetry. The
+ARCHIVE is read-only forever: Delivered reads a snapshot of chat.db
+and never writes to it. Sending (v1.3) does not bend that: the
+composer asks Messages.app to send via Apple Events, the same door
+any automation uses, gated by the macOS Automation permission at
+your first send. Delivered is the button, not the pipe; nothing
+sends without a human pressing Return, and the MCP server stays
+read-only so agents can read but only you can send. The one network
+call remains the updater's appcast fetch, user-disableable.
 Curation guarantees: nothing outside explicitly included chats appears in
 memories mode; hide-forever is one keystroke; exports are user-initiated
 files that go where the user says and nowhere else.
@@ -182,16 +197,7 @@ tested engine reusable by future archive consumers.
   videos copied as-is in media exports.
 - 61 tests.
 
-## Roadmap
-
-v1.1 remaining (verification, not construction):
-- Developer ID signing live (cert pending: Jeff's portal step), then
-  notarized DMG builds.
-- VoiceOver and keyboard-navigation audit; 4K memories perf check;
-  frame-restoration check (docs/hig-checklist.md unchecked items).
-- All Messages transcript windowing if the ~284k-row load feels slow.
-
-## Shipped (v1.3, 2026-07-17/18), the ship pipeline
+## Shipped (1.2 series, 2026-07-17/18), the ship pipeline
 
 - Signed: Developer ID Application (RF22UW723X), hardened runtime,
   inside-out signing including Sparkle's helpers (scripts/sign.sh).
@@ -218,16 +224,82 @@ v1.1 remaining (verification, not construction):
   installed 1.2.0 found it silently, staged it, and self-updated to
   1.2.1 on one click of the quiet line. The full loop works.
 
-v1.3 candidates (deferred deliberately from v1.2):
-- Photo recovery via the Photos library: many evicted attachments exist
-  in Photos; capture-date matching could refill Today, memories, and
-  exports. Needs PhotoKit and its own permission conversation.
-- Ambient video clips inside memories mode (muted AVPlayer layers in
-  the sequencer), the TV dream, done properly.
+## Shipped (1.3.0, 2026-07-29), the release that answers back
+
+The archive learned to hold a pen. Everything below was verified
+against a live 284k-message library before release.
+
+- Sending, built on one inviolable rule: the archive is read-only
+  forever. SendService asks Messages.app to send via Apple Events, the
+  same door any automation uses, gated by the macOS Automation
+  permission at first send. The lifecycle never lies: a message lifts
+  from the composer (with a 2 second Cmd+. catch window), hands to
+  Messages, and is only marked delivered when the echoed row appears in
+  the library itself. Failures surface amber with one-click retry.
+  iMessage first, SMS fallback for text-only phone sends.
+- The composer: under every transcript, Messages' own visual language,
+  paste-a-photo support, emoji palette, drafts that survive navigation,
+  send-scrolls-home. Reply in the very place the archive moved you.
+- Quick reply: Today cards and search hits grow a reply button that
+  answers in place, with the surrounding messages for context.
+- New Message (Cmd+N): a compose window in Mail's lineage, with
+  full-archive and full-Contacts people search, so the first text to a
+  new plumber starts in Delivered too.
+- Quick Send: a global hotkey (default Ctrl+Option+D, recordable in
+  Settings) summons a Spotlight-height panel over any app: type a name,
+  type the message, Return, back to work. Never activates the app, Esc
+  preserves the draft.
+- Live sync: a file watcher on chat.db means arriving messages appear
+  in about 3 seconds while the app is open, and sends confirm
+  themselves. Unread badges from the archive's own read state.
+- On This Day, the true edition: each visit to Today past the Lately
+  act is that date's edition across every year you have been texting,
+  a hero year chosen by substance, vignettes with the conversation
+  around each artifact, first-message milestones, and Cmd+G to open
+  any date's edition. Chevrons page between days.
+- Photos recovery: Messages evicts most attachment files from disk;
+  many of those photos still live in the Photos library. Recovery
+  matches by original filename and capture window (its own permission,
+  asked honestly in Settings) and refills Today, memories, and exports.
+- Ambient video clips in memories mode: muted, looped, era-correct.
+- Same-human stitching: one person texting from a phone number and an
+  email is one sidebar row, one transcript, one search scope,
+  automatically (62 stitched families became 83 on the reference
+  library).
+- Settings, the honest map: four permission rows (Full Disk Access,
+  Contacts, Automation, Photos), each live-probed with why and a
+  button; Quick Send shortcut recorder; Photos recovery lives where
+  the permission does.
+- Help, answered the Gruber way: Delivered Help (Cmd+/) is a local,
+  instant keyboard cheat sheet, and the project page link sits under
+  it. No empty help book.
+- Demo mode (DELIVERED_DEMO=1) boots a fully fictitious library for
+  every public screenshot; it is hard-gated from real Contacts and
+  real sending.
+- Release safety: scripts/test-update.sh rehearses the real Sparkle
+  update from the currently shipped public build to the local
+  candidate before any user can receive it. Proven live: public 1.2.4
+  updated itself to the 1.3.0 candidate through the genuine pipeline.
+- 83 tests across 22 suites; perf budgets re-verified at 284k messages
+  (search 1-2ms, edition build 1.5ms, whole-library stats 56ms).
+
+Decided against, permanently: integrating the imsg CLI at runtime
+(learn from its source, never depend on it), tier-3 injection
+features (tapbacks, edits, unsend, typing indicators), and any path
+that writes chat.db. The MCP server stays read-only: agents read,
+humans send.
+
+## Roadmap
+
+Verification remaining (not construction):
+- 4K memories perf check (hardware-blocked until a 4K display is
+  available).
 
 v2 (the big screen):
 - tvOS/iPad companion consuming .delivered archives (iCloud Drive or
   local network sync). The TV is the endgame for memories mode.
+- Considered and parked: Stats hero-card ranking, composer attachment
+  folding. Taste calls, revisit with real tester feedback.
 
 ## Naming and trademark
 
@@ -253,3 +325,11 @@ Delivered is not affiliated with Apple.
   shipped in one push (MCP, copy-as-context, person unification, saved
   searches, idle start, video). Photos-library recovery and ambient
   clips deferred to v1.3 by choice.
+- 2026-07-24: sending architecture decided. Apple Events to
+  Messages.app only; never write chat.db; never integrate the imsg
+  CLI at runtime (its source is a reference, not a dependency); tier-3
+  injection features permanently out; no send is claimed delivered
+  without the echoed library row.
+- 2026-07-29: 1.3.0 gated on Jeff's hands-on sign-off before release.
+  Auto-update rehearsal added as a standing pre-release step
+  (scripts/test-update.sh) and proven against the live 1.2.4.

@@ -4,6 +4,24 @@
     <title>Delivered</title>
     <language>en</language>
     <item>
+      <title>Version 1.3.0</title>
+      <pubDate>Thu, 30 Jul 2026 15:41:52 +0000</pubDate>
+      <sparkle:version>9</sparkle:version>
+      <sparkle:shortVersionString>1.3.0</sparkle:shortVersionString>
+      <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
+      <description><![CDATA[
+        <ul>
+          <li>Delivered answers back: a composer under every conversation, quick reply on Today cards and search hits, and Cmd+N to start a conversation with anyone in Contacts.</li> <li>Quick Send: press Ctrl+Option+D in any app, type a name and a message, press Return, and you never left what you were doing. The shortcut is yours to change in Settings.</li> <li>Sends are honest: a two second window to catch a message before it goes, and nothing is marked delivered until it truly is. Your archive remains read-only, always.</li> <li>Messages now arrive live while the app is open, with unread badges to match.</li> <li>On This Day is now a true daily edition: the best year leads, conversations replay around each photo, and Cmd+G opens any date you remember.</li> <li>Photos rescue: Messages quietly removes old attachment files from your Mac; Delivered can now recover them from your Photos library.</li> <li>One person, one row: a friend who texts from a phone number and an email is finally a single conversation everywhere.</li> <li>Delivered Help (Cmd+/) is a real keyboard cheat sheet, not an empty help book. Plus ambient video in memories, a smarter Settings window, and dozens of refinements.</li> 
+        </ul>
+      ]]></description>
+      <enclosure
+        url="https://github.com/jeffsand/delivered-releases/releases/download/v1.3.0/Delivered-1.3.0.dmg"
+        sparkle:edSignature="uiLnXeDZW35zUKggzP2iUIVahsaBqpdEEPC+xVIo29DGaAQGBkfbfAsDDjTMrMn9vkRZJ2x9KNJ7T32vqL5aDQ=="
+        length="4128918"
+        type="application/x-apple-diskimage" />
+    </item>
+
+    <item>
       <title>Version 1.2.4</title>
       <pubDate>Sat, 18 Jul 2026 19:30:10 +0000</pubDate>
       <sparkle:version>7</sparkle:version>

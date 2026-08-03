@@ -4,6 +4,24 @@
     <title>Delivered</title>
     <language>en</language>
     <item>
+      <title>Version 1.4.0</title>
+      <pubDate>Mon, 03 Aug 2026 16:40:14 +0000</pubDate>
+      <sparkle:version>11</sparkle:version>
+      <sparkle:shortVersionString>1.4.0</sparkle:shortVersionString>
+      <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
+      <description><![CDATA[
+        <ul>
+          <li>Shared links are finally beautiful: real preview cards in every conversation, built entirely from your archive, never fetched. Search finds links by their titles, and has:link joins the operator family.</li> <li>Every conversation has an Info button (Cmd+I): what it is, its actions, and every link ever shared in it.</li> <li>Cmd+K goes to any conversation by name. A click on a search result now lands on the exact message, highlighted.</li> <li>Clicks tell the truth everywhere: Today cards open their own conversation, and thin conversations get a Visiting home in the sidebar instead of bouncing to All Messages.</li> <li>A new Conversation menu puts every chat action in the menu bar where you can find it. Combined-thread controls retired; stitching just works.</li> <li>Send Feedback lives in the Help menu and opens the project's issue tracker.</li> 
+        </ul>
+      ]]></description>
+      <enclosure
+        url="https://github.com/jeffsand/delivered-releases/releases/download/v1.4.0/Delivered-1.4.0.dmg"
+        sparkle:edSignature="E/DMrIi5FVc/Rk8N+SEQVRbK61UhKQXpmxQ1JgDczhIYrRIhSj+VAQzFd2TBPemSwruT+lGK1+Fb0/mxW9mqAw=="
+        length="4283769"
+        type="application/x-apple-diskimage" />
+    </item>
+
+    <item>
       <title>Version 1.3.0</title>
       <pubDate>Thu, 30 Jul 2026 15:41:52 +0000</pubDate>
       <sparkle:version>9</sparkle:version>

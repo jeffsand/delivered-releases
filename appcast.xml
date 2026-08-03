@@ -4,6 +4,24 @@
     <title>Delivered</title>
     <language>en</language>
     <item>
+      <title>Version 1.4.1</title>
+      <pubDate>Mon, 03 Aug 2026 18:19:21 +0000</pubDate>
+      <sparkle:version>13</sparkle:version>
+      <sparkle:shortVersionString>1.4.1</sparkle:shortVersionString>
+      <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
+      <description><![CDATA[
+        <ul>
+          <li>Click anything on Today and land on that exact message, highlighted: photos, videos, quotes, even the first-message milestones.</li> <li>Navigation is now surgical at any scale. In very large conversations a click could land you years from the moment you wanted; anchors now converge on their target instead of trusting one estimate.</li> <li>Jumping to a moment in the conversation you already have open works too, including links from the Info panel.</li> <li>Photos that Messages moved to iCloud now say so plainly, and clicking the placeholder opens the conversation in Messages, the one app that can bring the file back. View in Messages also joins the Conversation menu and every message's right-click.</li> 
+        </ul>
+      ]]></description>
+      <enclosure
+        url="https://github.com/jeffsand/delivered-releases/releases/download/v1.4.1/Delivered-1.4.1.dmg"
+        sparkle:edSignature="YFYCtmZUc2k1+zom1P8iQYxExopA1p9gaeONZbhG6ur4Kq00HXDo4gKYWPx6iLpKry0oycm+zEThd26VF3FICA=="
+        length="4304109"
+        type="application/x-apple-diskimage" />
+    </item>
+
+    <item>
       <title>Version 1.4.0</title>
       <pubDate>Mon, 03 Aug 2026 16:40:14 +0000</pubDate>
       <sparkle:version>11</sparkle:version>

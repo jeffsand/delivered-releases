@@ -158,6 +158,14 @@ live status and a button for each.
 
 <img src="images/settings.png" width="640" alt="Settings: library, updates, and the Quick Send shortcut">
 
+## Feedback
+
+Found a bug, or want something Delivered does not do yet? [Open an
+issue](../../issues) on this repository, it is the one place feedback
+is tracked. A screenshot helps; remember that screenshots of your own
+library contain your real messages, so crop accordingly. Help > Send
+Feedback inside the app lands here too.
+
 ## Updates
 
 Updates are unobtrusive by policy: no dialog, ever. The app checks
